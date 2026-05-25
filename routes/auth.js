@@ -5,14 +5,14 @@ const router = express.Router();
 
 router.get('/login', (req, res) => {
   if (req.session.user) return res.redirect('/dashboard');
-  res.render('auth/login', { error: null, title: 'Login' });
+  res.render('auth/login', { error: null, registered: req.query.registered || null, title: 'Login' });
 });
 
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
   const user = db.prepare('SELECT * FROM users WHERE email = ?').get(email);
   if (!user || !bcrypt.compareSync(password, user.password)) {
-    return res.render('auth/login', { error: 'Invalid email or password', title: 'Login' });
+    return res.render('auth/login', { error: 'Invalid email or password', registered: null, title: 'Login' });
   }
   req.session.user = { id: user.id, name: user.name, email: user.email, role: user.role, state: user.state };
   res.redirect('/dashboard');

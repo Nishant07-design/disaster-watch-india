@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
   query += ' ORDER BY i.created_at DESC';
   const incidents = db.prepare(query).all(...params);
   const states = db.prepare('SELECT DISTINCT state FROM incidents ORDER BY state').all();
-  res.render('incidents/index', { incidents, states, filters: req.query, title: 'Active Incidents', user: req.session.user });
+  res.render('incidents/index', { incidents, states, filters: req.query, reported: req.query.reported || null, title: 'Active Incidents', user: req.session.user });
 });
 
 // Report new incident form
