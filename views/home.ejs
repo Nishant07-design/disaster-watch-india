@@ -235,4 +235,17 @@
   });
 </script>
 
+<!-- PWA Install Banner -->
+<div id="installBanner" class="d-none">
+  <div class="alert alert-danger alert-dismissible rounded-0 border-0 border-top border-danger mb-0 d-flex align-items-center gap-3">
+    <span class="fs-4">📱</span>
+    <div class="flex-grow-1">
+      <strong>Install DisasterWatch India</strong>
+      <p class="mb-0 small text-muted">Add to your home screen for quick access during emergencies</p>
+    </div>
+    <button id="installBtn" class="btn btn-danger btn-sm rounded-pill px-3">Install</button>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+</div>
+
 <%- include('partials/footer') %>
