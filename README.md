@@ -96,7 +96,7 @@ disaster-response-platform/
 | Layer | Technology |
 |---|---|
 | Backend | Node.js + Express |
-| Database | SQLite 3 (via `better-sqlite3`) |
+| Database | json |
 | Templating | EJS |
 | Frontend | Bootstrap 5 + Bootstrap Icons |
 | Maps | Leaflet.js + OpenStreetMap |
